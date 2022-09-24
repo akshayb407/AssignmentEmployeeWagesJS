@@ -13,6 +13,7 @@
 //UC3 FUNCTION TO CALCULATE WAGE 
 //UC4 UC5 CALCULATE TILL THE CONDITION
 // USE FOR LOOP AND WHILE LOOP
+//UC6 STORE DAILY WAGE IN ARRAY
 const IS_PART_TIME = 1;
 const IS_FULL_TIME = 2;
 const PART_TIME_HOURS = 4;
@@ -34,10 +35,18 @@ function getWorkingHour(empCheck){
 
 let totalHrs = 0;
 let totalWorkingdays=0;
+let empDailyWageArr = new Array();
+
+function calcDailyWage(empHrs){
+    return empHrs * WAGE_PER_HOUR;
+}
+
 while( totalHrs <= MAX_WORKING_HR && totalWorkingdays < NO_OF_WORKING_DAYS){
     totalWorkingdays++;
     let empCheck = Math.floor(Math.random() * 10) % 3;
     totalHrs += getWorkingHour(empCheck);
+    empHrs = getWorkingHour(empCheck);
+    empDailyWageArr.push(calcDailyWage(empHrs));
 }
-let empWage = totalHrs * WAGE_PER_HOUR;
-console.log(" Total days are: "+totalWorkingdays+"\n Hours worked is: "+totalHrs+"\n Employee wage is: "+empWage);
+let empWage = calcDailyWage(totalHrs);
+console.log(" Total days are: "+totalWorkingdays+"\n Hours worked is:"+totalHrs+"\n Employee wage is: "+empWage);
