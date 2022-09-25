@@ -158,3 +158,44 @@ while (totalEmpHrs <= MAX_WORKING_HR && totalWorkingdays <= NO_OF_WORKING_DAYS){
 }
 console.log("UC 10 Showing daily hours worked and wage earned: "+empDailyHrsAndWageArr);
 console.log("______________________________________________________________")
+
+//UC 10 Object Creation
+//let totalEmpHrs = 0;
+//totalWorkingdays = 0;
+//let empDailyHrsAndWageArr = new Array();
+//while (totalEmpHrs <= MAX_WORKING_HR && totalWorkingdays <= NO_OF_WORKING_DAYS){
+  //  totalWorkingdays++;
+   // empCheck = Math.floor((Math.random()*10)%3);
+    //empHrs = getWorkingHour(empCheck);
+   // totalEmpHrs += empHrs;
+    //empDailyHrsAndWageArr.push({
+      //  dayNum:totalWorkingdays,
+        //dailyHours:empHrs,
+        //dailyWage: calcDailyWage(empHrs),
+       // toString(){
+         //   return '\nDay '+this.dayNum+' => working Hours is '+this.dailyHours+' And Wage Earned = '+this.dailyWage
+       // }
+    //});
+//}
+//console.log("UC 10 Showing daily hours worked and wage earned: "+empDailyHrsAndWageArr);
+//console.log("______________________________________________________________")
+
+//UC 11 Object operation using Arrow function
+let totalWagess = empDailyHrsAndWageArr.filter(dailyHrsAndWage => dailyHrsAndWage.dailyWage>0)
+                .reduce((totalWage, dailyHrsAndWage) => totalWage += dailyHrsAndWage.dailyWage, 0);
+let TotalHours = empDailyHrsAndWageArr.filter(dailyHrsAndWage => dailyHrsAndWage.dailyHours>0)
+                .reduce((totalHours, dailyHrsAndWage) => totalHours += dailyHrsAndWage.dailyHours,0);
+console.log("UC 11A Total hours "+TotalHours+" Total Wages : "+totalWagess);
+
+console.log("UC 11B Loggin full working days");
+empDailyHrsAndWageArr.filter(dailyHrsAndWage => dailyHrsAndWage.dailyHours == 8).
+forEach(dailyHrsAndWage => console.log(dailyHrsAndWage.toString()));
+
+let partWorkingDayStrArr = empDailyHrsAndWageArr.filter(dailyHrsAndWage => dailyHrsAndWage.dailyHours == 4).
+forEach(dailyHrsAndWage => dailyHrsAndWage.toString());
+console.log("\nUC 11C part time working string "+partWorkingDayStrArr);
+
+let nonworkingDayStrArr = empDailyHrsAndWageArr.filter(dailyHrsAndWage => dailyHrsAndWage.dailyHours == 0)
+.forEach(dailyHrsAndWage => dailyHrsAndWage.toString());
+console.log("\nUC 11D No working days "+nonworkingDayStrArr);
+console.log("______________________________________________________________")
