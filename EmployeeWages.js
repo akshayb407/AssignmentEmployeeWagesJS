@@ -232,8 +232,12 @@ class EmployeePayrollData {
 
 let employeePayrollData = new EmployeePayrollData(1,"Kalpesh",50000);
 console.log(employeePayrollData.toString());
-employeePayrollData.name = "John";
-console.log(employeePayrollData.toString());
+try{
+    employeePayrollData.name = "john";
+    console.log(employeePayrollData.toString());
+}catch(e){
+    console.error(e);
+}
 let newemployeePayrollData = new EmployeePayrollData(2,"Terissa",70000,"Female",new Date());
 console.log(newemployeePayrollData.toString());
 console.log("______________________________________________________________")
