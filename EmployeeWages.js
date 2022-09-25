@@ -111,5 +111,5 @@ function totalDaysWorked(numOfDays, dailyWage){
     if(dailyWage > 0 ) return numOfDays+1;
     return numOfDays;
 }
-console.log("UC 7G number of days emp worked "+empDailyWageArr.reduce(totalDaysWorked,0));
+console.log("UC 7G number of days emp worked :"+empDailyWageArr.reduce(totalDaysWorked,0));
 console.log("______________________________________________________________")
